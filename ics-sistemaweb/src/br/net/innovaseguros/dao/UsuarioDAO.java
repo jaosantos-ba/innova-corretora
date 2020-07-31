@@ -11,7 +11,8 @@ import br.net.innovaseguros.model.Usuario;
 
 public class UsuarioDAO {
 	
-	private Usuario usuario = new Usuario ("jaosantos", "senha");
+	private Usuario usuario;
+	//private Usuario usuario = new Usuario ("jaosantos", "123456");
 	
 	//private Context ctx = null;
     //private DataSource ds = null;
@@ -43,12 +44,12 @@ public class UsuarioDAO {
     }*/
     
     public Usuario autenticate(String login, String senha) {
-    	
+    	usuario = null;
     	System.out.println(login);
 		System.out.println(senha);
-		if (login.equals(usuario.getLogin()) && senha.equals(usuario.getSenha())) {
-			System.out.println("Usuário autenticado: " + usuario.getLogin());
-			System.out.println("Senha autenticado: " + usuario.getSenha());	
+		if (login.equals("jaosantos") && senha.equals("123456")) {
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
 		}
 		return usuario;
 		

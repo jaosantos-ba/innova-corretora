@@ -16,7 +16,8 @@ import br.net.innovaseguros.model.Usuario;
 /**
  * Servlet Filter implementation class LoginFilter
  */
-@WebFilter(urlPatterns = {"/private/*"})
+//@WebFilter(urlPatterns = {"/private/*"})
+@WebFilter("/private/*")
 public class LoginFilter implements Filter {
 
     /**
