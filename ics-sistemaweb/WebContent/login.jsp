@@ -43,11 +43,12 @@
 			<label for="inputPassword" class="sr-only">Senha</label>
 			<input type="password" id="inputPassword" class="form-control" name="pass" placeholder="Digite sua Senha" required>
 			<div class="checkbox mb-3">
-			  <label>
+			  <!-- <label>
 			    <input type="checkbox" value="remember-me"> Lembrar-me
-			  </label>
+			  </label> -->
 			</div>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+			<div><c:out value="${erro}"></c:out></div>
 			<p class="mt-5 mb-3 text-muted">&copy;2020</p>
 		</form>
 	<jsp:include page="scripts.jsp" ></jsp:include>

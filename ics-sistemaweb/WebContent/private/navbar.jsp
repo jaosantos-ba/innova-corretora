@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<jsp:include page="/header.jsp" ></jsp:include>
-<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<jsp:include page="/header.jsp" ></jsp:include>
+	<jsp:useBean id="usuario" class="br.net.innovaseguros.model.Usuario" scope="session"></jsp:useBean>
 </head>
 <body>
 	<nav class="navbar navbar-dark sticky-top bg-success flex-md-nowrap p-0 shadow">
@@ -12,10 +13,10 @@
 	  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
-	  <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+	  <a class="navbar-brand col-md-0 col-lg-0 mr-0 px-0"><strong>Usuário: </strong><%=usuario.getNome()%></a>
 	  <ul class="navbar-nav px-3">
 	    <li class="nav-item text-nowrap">
-	      <a class="nav-link" href="../logout">Sair</a>
+	      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../logout">Sair</a>
 	    </li>
 	  </ul>
 	</nav>

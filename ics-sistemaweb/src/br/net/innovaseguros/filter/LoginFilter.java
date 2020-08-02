@@ -49,7 +49,7 @@ public class LoginFilter implements Filter {
 			chain.doFilter(request, response);
 		} else {
 			request.setAttribute("erro", "É preciso estar logado!");
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ics-sistemaweb/");
 			dispatcher.forward(request, response);
 		}	
 	}
@@ -60,5 +60,4 @@ public class LoginFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {
 		// TODO Auto-generated method stub
 	}
-
 }

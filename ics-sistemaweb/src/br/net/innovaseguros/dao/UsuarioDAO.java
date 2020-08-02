@@ -27,6 +27,9 @@ public class UsuarioDAO {
     private Connection con = null;*/
 
     private static final String AUTENTICATE = "SELECT id_usuario, login, nome, senha, ativo, perfil from usuarios where login=? and senha=?";
+    private static final String SELECT_ALL = "SELECT id_usuario, login, nome, senha, ativo, perfil from usuarios";
+    private static final String INSERT = "INSERT INTO usuarios ( login, nome, senha, ativo, perfil ) VALUES ( ?,?,?,?,? )";
+    private static final String DELETE = "DELETE FROM usuarios where id_usuario=?";
     
     public Connection getInstance() {
     	
@@ -120,5 +123,74 @@ public class UsuarioDAO {
             //close(stmt, rs);
         }
         return usuario;
-    }   
+    }
+    
+    public void save(Usuario usuario) {
+        PreparedStatement stmt = null;
+        try {
+            //open();
+        	conn = getInstance();
+        	stmt = conn.prepareStatement(INSERT);
+            stmt.setString(1, usuario.getLogin());
+            stmt.setString(2, usuario.getNome());
+            //String pass = Criptografia.criptografar(usuario.getSenha());
+            stmt.setString(3, usuario.getSenha());
+            stmt.setBoolean(4, usuario.getAtivo());
+            stmt.setBoolean(5, usuario.getPerfil());
+            stmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //close(stmt);
+        }
+    }
+    
+    public void delete(Long id) {
+        Usuario usuario = new Usuario();
+        usuario.setId(id);
+        this.delete(usuario);
+    }
+
+    public void delete(Usuario usuario) {
+        PreparedStatement stmt = null;
+
+        try {
+            //open();
+        	conn = getInstance();
+        	stmt = conn.prepareStatement(DELETE);
+            stmt.setLong(1, usuario.getId());
+            stmt.execute();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //close(stmt);
+        }
+    }
+    
+    public List<Usuario> listAll() {
+        List<Usuario> usuarios = new ArrayList<Usuario>();
+        Statement stmt = null;
+        ResultSet rs = null;
+        try {
+            //this.open();
+        	conn = getInstance();
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery(SELECT_ALL);
+            while (rs.next()) {
+                Usuario usuario = new Usuario();
+                usuario.setId(rs.getLong("id_usuario"));
+                usuario.setLogin(rs.getString("login"));
+                usuario.setNome(rs.getString("nome"));
+                usuario.setSenha(rs.getString("senha"));
+                usuario.setAtivo(rs.getBoolean("ativo"));
+                usuario.setPerfil(rs.getBoolean("perfil"));
+                usuarios.add(usuario);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            //this.close(stmt, rs);
+        }
+        return usuarios;
+    }
 }

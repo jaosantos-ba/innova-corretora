@@ -7,17 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.net.innovaseguros.service.UsuarioService;
+
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class UsuarioDelete
  */
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+//@WebServlet(urlPatterns = { "/usuarios/salvar" })
+@WebServlet("/usuarios/excluir")
+public class UsuarioDelete extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
+    
+	private UsuarioService usuarioService = new UsuarioService();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public UsuarioDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +32,11 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			request.getSession().invalidate();
-			response.sendRedirect("/ics-sistemaweb/");
+		
+		String index = request.getParameter("index");
+		usuarioService.delete(index);
+		
+		response.sendRedirect("/ics-sistemaweb/usuarios");
 	}
 
 	/**
@@ -37,4 +46,5 @@ public class Logout extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

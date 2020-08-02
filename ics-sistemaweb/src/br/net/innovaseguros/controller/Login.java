@@ -50,7 +50,9 @@ public class Login extends HttpServlet {
 			request.getSession().setAttribute("usuario", usuario);
 			response.sendRedirect("./private/dashboard.jsp");
 		} else {
-			throw new ServletException("Usuário ou senha inválido");
+			//throw new ServletException("Usuário ou senha inválido");
+			//response.sendRedirect("./login.jsp");
+			response.sendRedirect("/ics-sistemaweb/");
 		}
 	}
 }

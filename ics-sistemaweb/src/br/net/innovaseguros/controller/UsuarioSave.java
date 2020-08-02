@@ -7,17 +7,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.net.innovaseguros.service.UsuarioService;
+
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class UsuarioSaveOrUpdate
  */
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+//@WebServlet(urlPatterns = { "/usuarios/salvar" })
+@WebServlet("/usuarios/salvar")
+public class UsuarioSave extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-       
+    
+	private UsuarioService usuarioService = new UsuarioService();
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public UsuarioSave() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,15 +32,25 @@ public class Logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			request.getSession().invalidate();
-			response.sendRedirect("/ics-sistemaweb/");
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		String login = request.getParameter("login");
+		String nome = request.getParameter("name");
+		String senha = request.getParameter("pass");
+		String ativo = request.getParameter("ative");
+        String perfil = request.getParameter("profile");
+        
+        usuarioService.save(login, nome, senha, ativo, perfil);
+
+        response.sendRedirect("/ics-sistemaweb/usuarios");
+		
 	}
+
 }
