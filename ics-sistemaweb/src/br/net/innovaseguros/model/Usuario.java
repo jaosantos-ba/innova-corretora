@@ -9,9 +9,9 @@ public class Usuario {
 	private Boolean ativo;
 	private Boolean perfil;
 
-	/*public Usuario() {
+	public Usuario() {
 		super();
-	}*/
+	}
 	
 	public Usuario(String login, String senha) {
 		super();
@@ -19,7 +19,7 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	/*public Usuario(long id, String login, String nome, String senha, Boolean ativo, Boolean perfil) {
+	public Usuario(long id, String login, String nome, String senha, Boolean ativo, Boolean perfil) {
 		super();
 		this.id = id;
 		this.login = login;
@@ -27,7 +27,7 @@ public class Usuario {
 		this.senha = senha;
 		this.ativo = ativo;
 		this.perfil = perfil;
-	}*/
+	}
 
 	public long getId() {
 		return id;

@@ -45,7 +45,7 @@ public class LoginFilter implements Filter {
 		
 		if(object != null) {
 			Usuario usuario = (Usuario) object;
-			System.out.println("Filtrou");
+			System.out.println("Filtrou o acesso!");
 			chain.doFilter(request, response);
 		} else {
 			request.setAttribute("erro", "É preciso estar logado!");
