@@ -15,7 +15,7 @@
 	    
 		<div class="col-md-8 order-md-1">
 		  
-	      <h4 class="mb-3">Novo Usuário</h4>
+	      <h1 class="h2">Novo Usuário</h1>
 	      <hr class="mb-4">
 	      <form class="needs-validation" novalidate action="/ics-sistemaweb/usuarios/salvar" method="post">
 	        
