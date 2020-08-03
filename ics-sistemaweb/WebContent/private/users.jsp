@@ -56,8 +56,8 @@
 		              <td>${user.nome}</td>
 		              <td>${user.ativo ? 'SIM' : 'NAO'}</td>
 		              <td>${user.perfil ? 'ADMIN' : 'USER'}</td>
-		              <td><a href="/ics-sistemaweb/usuarios/excluir?index=${user.id}">EXCLUIR</a></td>
-                      <td><a href="/ics-sistemaweb/usuarios/editar?index=${user.id}">ALTERAR</a></td>
+		              <td><a href="/ics-sistemaweb/usuarios/excluir?index=${user.id}">Excluir</a></td>
+                      <td><a href="/ics-sistemaweb/usuarios/editar?index=${user.id}">Alterar</a></td>
 		            </tr>
 		          </c:forEach>
 	          </tbody>

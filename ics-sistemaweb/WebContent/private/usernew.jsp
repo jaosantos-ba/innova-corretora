@@ -42,14 +42,14 @@
 	        <div class="row">
 	          <div class="col-md-6 mb-3">
 	            <label for="pass">Senha</label>
-	            <input type="text" class="form-control" id="pass" name="pass" placeholder="Digite sua senha" value="" required>
+	            <input type="password" class="form-control" id="pass" name="pass" placeholder="Digite sua senha" value="" required>
 	            <div class="invalid-feedback">
 	              Your pass is required.
 	            </div>
 	          </div>
 	          <div class="col-md-6 mb-3">
 	            <label for="confirmPass">Confirmar Senha</label>
-	            <input type="text" class="form-control" id="confirmPass" placeholder="Confirme sua senha" value="" required>
+	            <input type="password" class="form-control" id="confirmPass" placeholder="Confirme sua senha" value="" required>
 	            <div class="invalid-feedback">
 	              Valid pass is required.
 	            </div>
