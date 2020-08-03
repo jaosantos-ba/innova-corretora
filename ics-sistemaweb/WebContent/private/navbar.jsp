@@ -16,7 +16,7 @@
 	  <a class="navbar-brand col-md-0 col-lg-0 mr-0 px-0"><strong>Usuário: </strong><%=usuario.getNome()%></a>
 	  <ul class="navbar-nav px-3">
 	    <li class="nav-item text-nowrap">
-	      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="../logout">Sair</a>
+	      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/ics-sistemaweb/logout">Sair</a>
 	    </li>
 	  </ul>
 	</nav>

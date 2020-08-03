@@ -12,15 +12,29 @@ public class UsuarioService {
 	
 	public void save (String login, String nome, String senha, String ativo, String perfil) {
 		
-		Usuario usuario = new Usuario();
-		usuario.setLogin(login);
-		usuario.setNome(nome);
-		usuario.setSenha(senha);
-        usuario.setAtivo(ativo!=null?true:false);
-        usuario.setPerfil(perfil!=null?true:false);
+		Usuario usuarioSave = new Usuario();
+		usuarioSave.setLogin(login);
+		usuarioSave.setNome(nome);
+		usuarioSave.setSenha(senha);
+		usuarioSave.setAtivo(ativo!=null?true:false);
+		usuarioSave.setPerfil(perfil!=null?true:false);
         
-        usuarioDAO.save(usuario);
+        usuarioDAO.save(usuarioSave);
 	}
+	
+	public void update(String idUpd, String loginUpd, String nomeUpd, String senhaUpd, String ativoUpd, String perfilUpd) {
+        
+		Usuario usuarioUpd = new Usuario();
+		Long id = Long.parseLong(idUpd);
+		usuarioUpd.setId(id);
+		usuarioUpd.setLogin(loginUpd);
+		usuarioUpd.setNome(nomeUpd);
+		usuarioUpd.setSenha(senhaUpd);
+		usuarioUpd.setAtivo(ativoUpd!=null?true:false);
+		usuarioUpd.setPerfil(perfilUpd!=null?true:false);
+		
+		usuarioDAO.update(usuarioUpd);
+    }
 	
 	public void delete (String index) {
 		

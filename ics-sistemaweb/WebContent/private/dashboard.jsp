@@ -9,7 +9,6 @@
 <body>
 	<c:import url="/private/navbar.jsp" />
 	
-	
 	<div class="container-fluid">
 	  <div class="row">
 	    <c:import url="/private/leftmenu.jsp" />

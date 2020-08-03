@@ -45,7 +45,7 @@
 	              <th>Nome</th>
 	              <th>Ativo</th>
 	              <th>Perfil</th>
-	              <th colspan="2">Quantidade de usuários: ${usuarios.size()} </th>
+	              <th colspan="2">Qtde Usuários: ${usuarios.size()}</th>
 	            </tr>
 	          </thead>
 	          <tbody>
@@ -54,10 +54,10 @@
 		              <td>${user.id}</td>
 		              <td>${user.login}</td>
 		              <td>${user.nome}</td>
-		              <td>${user.ativo ? 'SIM' : 'NAO'}</td>
-		              <td>${user.perfil ? 'ADMIN' : 'USER'}</td>
+		              <td>${user.ativo ? 'Sim' : 'Não'}</td>
+		              <td>${user.perfil ? 'Admin' : 'User'}</td>
 		              <td><a href="/ics-sistemaweb/usuarios/excluir?index=${user.id}">Excluir</a></td>
-                      <td><a href="/ics-sistemaweb/usuarios/editar?index=${user.id}">Alterar</a></td>
+                      <td><a href="/ics-sistemaweb/usuarios/alterar?index=${user.id}">Alterar</a></td>
 		            </tr>
 		          </c:forEach>
 	          </tbody>

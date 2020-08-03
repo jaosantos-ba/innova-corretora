@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ICS · Novo Usuário</title>
+<title>ICS · Alterar Usuário</title>
 </head>
 <body>
 	<c:import url="/private/navbar.jsp" />
@@ -15,14 +15,15 @@
 	    
 		<div class="col-md-8 order-md-1">
 		  
-	      <h1 class="h2">Novo Usuário</h1>
+	      <h1 class="h2">Alterar Usuário</h1>
 	      <hr class="mb-4">
-	      <form class="needs-validation" novalidate action="/ics-sistemaweb/usuarios/salvar" method="post">
+	      <form class="needs-validation" novalidate action="/ics-sistemaweb/usuarios/alterar" method="post">
 	        
+	        <input type="hidden" name="idUpd" value="${usuario.id}" >
 	        <div class="mb-3">
 	          <label for="username">Login</label>
 	          <div class="input-group">
-	            <input type="text" class="form-control" id="username" name="login" placeholder="Digite o seu login" required>
+	            <input type="text" class="form-control" id="username" name="loginUpd" placeholder="Digite o seu login" required value="${usuario.login}">
 	            <div class="invalid-feedback" style="width: 100%;">
 	              Your login is required.
 	            </div>
@@ -32,7 +33,7 @@
 	        <div class="mb-3">
 	          <label for="fullname">Nome completo</label>
 	          <div class="input-group">
-	            <input type="text" class="form-control" id="fullname" name="name" placeholder="Digite seu nome completo" value="" required>
+	            <input type="text" class="form-control" id="fullname" name="nameUpd" placeholder="Digite seu nome completo" required value="${usuario.nome}">
 	            <div class="invalid-feedback" style="width: 100%;">
 	              Your name is required.
 	            </div>
@@ -42,14 +43,14 @@
 	        <div class="row">
 	          <div class="col-md-6 mb-3">
 	            <label for="pass">Senha</label>
-	            <input type="password" class="form-control" id="pass" name="pass" placeholder="Digite sua senha" value="" required>
+	            <input type="password" class="form-control" id="pass" name="passUpd" placeholder="Digite sua senha" required value="${usuario.senha}">
 	            <div class="invalid-feedback">
 	              Your pass is required.
 	            </div>
 	          </div>
 	          <div class="col-md-6 mb-3">
 	            <label for="confirmPass">Confirmar Senha</label>
-	            <input type="password" class="form-control" id="confirmPass" placeholder="Confirme sua senha" value="" required>
+	            <input type="password" class="form-control" id="confirmPass" placeholder="Confirme sua senha" required value="${usuario.senha}">
 	            <div class="invalid-feedback">
 	              Valid pass is required.
 	            </div>
@@ -59,21 +60,18 @@
 	         <div class="row">
 	          <div class="col-md-6 mb-3">
 	          <div class="form-group form-check">
-		       <input type="checkbox" class="form-check-input" <c:if test="${usuario.ativo}">checked="checked"</c:if>
-		               id="ativo" name="ative" >
+		       <input type="checkbox" class="form-check-input" <c:if test="${usuario.ativo}">checked="checked"</c:if> id="ativo" name="ativeUpd">
 		       <label class="form-check-label" for="ativo">Ativo?</label>
 			  </div>
 	          </div>
 	          <div class="col-md-6 mb-3">
 	          <div class="form-group form-check">
-		       <input type="checkbox" class="form-check-input" <c:if test="${usuario.perfil}">checked="checked"</c:if>
-		               id="ativo" name="profile" >
+		       <input type="checkbox" class="form-check-input" <c:if test="${usuario.perfil}">checked="checked"</c:if> id="ativo" name="profileUpd">
 		       <label class="form-check-label" for="perfil">Admin?</label>
 			  </div>
 	          </div>
 	         </div>
-			<button type="submit" class="btn btn-primary">Salvar</button>
-			<button type="reset" class="btn btn-primary">Limpar</button>
+			<button type="submit" class="btn btn-primary">Alterar</button>
 	      </form>
 	    </div>
 	  </div>
