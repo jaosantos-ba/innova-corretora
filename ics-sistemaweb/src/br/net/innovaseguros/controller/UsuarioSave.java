@@ -1,6 +1,8 @@
 package br.net.innovaseguros.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,11 +46,19 @@ public class UsuarioSave extends HttpServlet {
 		String login = request.getParameter("login");
 		String nome = request.getParameter("name");
 		String senha = request.getParameter("pass");
+		String senhaConf = request.getParameter("cPass");
 		String ativo = request.getParameter("ative");
         String perfil = request.getParameter("profile");
         
-        usuarioService.save(login, nome, senha, ativo, perfil);
-
-        response.sendRedirect("/ics-sistemaweb/usuarios");	
+        if (senha == senhaConf) {
+        	usuarioService.save(login, nome, senha, ativo, perfil);
+            response.sendRedirect("/ics-sistemaweb/usuarios");	
+        } else {
+        	response.sendRedirect("/ics-sistemaweb/usuarios");
+        	
+        	/*request.setAttribute("erroSenha", "As senhas não coincidem!");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/ics-sistemaweb/private/usernew.jsp");
+			dispatcher.forward(request, response);*/
+        }
 	}
 }

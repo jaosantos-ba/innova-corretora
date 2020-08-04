@@ -40,7 +40,6 @@
 	        <table class="table table-striped table-sm" >
 	          <thead>
 	            <tr>
-	              <th>Id</th>
 	              <th>Login</th>
 	              <th>Nome</th>
 	              <th>Ativo</th>
@@ -51,7 +50,6 @@
 	          <tbody>
 	            <c:forEach var="user" items="${usuarios}" >
 		            <tr>
-		              <td>${user.id}</td>
 		              <td>${user.login}</td>
 		              <td>${user.nome}</td>
 		              <td>${user.ativo ? 'Sim' : 'Não'}</td>

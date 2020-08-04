@@ -42,7 +42,7 @@ public class UsuarioChange extends HttpServlet {
 			Usuario usuario = usuarioDAO.findById(id);
 			request.setAttribute("usuario", usuario);
 		}
-		request.getRequestDispatcher("/private/change.jsp").forward(request, response);
+		request.getRequestDispatcher("/private/userchange.jsp").forward(request, response);
 	}
 
 	/**
